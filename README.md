@@ -1,2 +1,340 @@
-# Website-Personal
-Web
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>Business Landing Page</title>
+<style>
+  /* Reset and base */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  body, h1, h2, h3, p, ul, li, button, input, label {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  body {
+    background: #f8fafc;
+    color: #333;
+    line-height: 1.6;
+    font-size: 16px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  /* Container */
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  /* Header */
+  header {
+    background-color: #003366;
+    color: #fff;
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    user-select: none;
+  }
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 18px;
+  }
+  nav ul li a {
+    color: #cbd5e1;
+    font-weight: 600;
+    padding: 6px 10px;
+    transition: color 0.3s ease;
+  }
+  nav ul li a:hover,
+  nav ul li a:focus {
+    color: #ffd700;
+    outline: none;
+  }
+  /* Hero Section */
+  .hero {
+    background: linear-gradient(135deg, #0055a5 0%, #0077d4 100%);
+    color: white;
+    text-align: center;
+    padding: 50px 20px 60px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .hero h1 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    line-height: 1.1;
+  }
+  .hero p {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .btn-primary {
+    background-color: #ffd700;
+    color: #003366;
+    font-weight: 700;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    box-shadow: 0 5px 8px rgba(255, 215, 0, 0.4);
+    transition: background-color 0.3s ease;
+  }
+  .btn-primary:hover,
+  .btn-primary:focus {
+    background-color: #e0ba00;
+    outline: none;
+  }
+  /* Features Section */
+  .features {
+    background: #fff;
+    padding: 40px 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 30px;
+    text-align: center;
+  }
+  .feature-item {
+    background: #e6f0ff;
+    border-radius: 15px;
+    padding: 25px 15px;
+    box-shadow: 0 3px 8px rgba(0, 85, 165, 0.12);
+  }
+  .feature-icon {
+    font-size: 48px;
+    color: #0077d4;
+    margin-bottom: 18px;
+  }
+  .feature-title {
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+    color: #003366;
+  }
+  .feature-desc {
+    color: #334155;
+    font-size: 0.95rem;
+  }
+  /* About Section */
+  .about {
+    padding: 50px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    color: #1e293b;
+  }
+  .about h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .about p {
+    font-size: 1rem;
+    line-height: 1.5;
+    text-align: center;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #475569;
+  }
+  /* Contact Section */
+  .contact {
+    background: #003366;
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+  }
+  .contact h2 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+  }
+  .contact form {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  .form-group {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  .form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: 2px solid #ffd700;
+    background-color: #fefbd8;
+  }
+  .form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+  .btn-secondary {
+    background-color: #ffd700;
+    color: #003366;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+  }
+  .btn-secondary:hover,
+  .btn-secondary:focus {
+    background-color: #e0ba00;
+    outline: none;
+  }
+  /* Footer */
+  footer {
+    background-color: #1e293b;
+    color: #94a3b8;
+    padding: 20px 10px;
+    font-size: 0.9rem;
+    text-align: center;
+  }
+  .social-links {
+    margin-bottom: 10px;
+  }
+  .social-links a {
+    color: #94a3b8;
+    margin: 0 8px;
+    font-size: 1.3rem;
+    display: inline-block;
+    vertical-align: middle;
+    transition: color 0.3s ease;
+  }
+  .social-links a:hover,
+  .social-links a:focus {
+    color: #ffd700;
+    outline: none;
+  }
+  /* Responsive styling */
+  @media (max-width: 600px) {
+    .hero h1 {
+      font-size: 2rem;
+    }
+    nav ul {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+    .feature-item {
+      padding: 20px 12px;
+    }
+    .about {
+      padding: 40px 10px;
+    }
+    .contact form {
+      width: 100%;
+      padding: 0 10px;
+    }
+  }
+</style>
+</head>
+<body>
+<header class="container" role="banner">
+  <div class="logo" aria-label="Business Logo">Konsep Shop</div>
+  <nav aria-label="Primary navigation">
+    <ul>
+      <li><a href="#features" tabindex="0">Fitur</a></li>
+      <li><a href="#about" tabindex="0">Tentang</a></li>
+      <li><a href="#contact" tabindex="0">Kontak</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero" role="region" aria-labelledby="hero-title">
+  <h1 id="hero-title">Menjual Alat Alat Motor</h1>
+  <p>Toko Terpercaya</p>
+  <button class="btn-primary" type="button" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Get Started</button>
+</section>
+
+<section id="features" class="features" role="region" aria-labelledby="features-title">
+  <div class="container">
+    <h2 id="features-title" style="text-align:center; margin-bottom: 40px; color:#003366; font-weight: 700;">Our Features</h2>
+    <div class="feature-item" tabindex="0" aria-label="Feature: Expert Consulting">
+      <div class="feature-icon" aria-hidden="true">💼</div>
+      <h3 class="feature-title">Konsultasi</h3>
+      <p class="feature-desc">Jual Beli Barang Yang layak Pakai</p>
+    </div>
+    <div class="feature-item" tabindex="0" aria-label="Feature: Custom Solutions">
+      <div class="feature-icon" aria-hidden="true">⚙️</div>
+      <h3 class="feature-title">Setting</h3>
+      <p class="feature-desc">Aat Alat Yang Kamu Perlukan</p>
+    </div>
+    <div class="feature-item" tabindex="0" aria-label="Feature: 24/7 Support">
+      <div class="feature-icon" aria-hidden="true">🛎️</div>
+      <h3 class="feature-title">24/7 Support</h3>
+      <p class="feature-desc">Customer Service Yang Cepat Dan Ramah</p>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="about" role="region" aria-labelledby="about-title">
+  <h2 id="about-title">Tentang Toko Kami</h2>
+  <p>Toko Kami Menjual Barang Barang Murah Dan Berkualitas Juga Membeli Barang Bekas Yang Berkualitas</p>
+</section>
+
+<section id="contact" class="contact" role="region" aria-labelledby="contact-title">
+  <h2 id="contact-title">Contact Us</h2>
+  <form aria-describedby="contact-description" onsubmit="event.preventDefault(); alert('Thank you for reaching out! We will get back to you shortly.'); this.reset();">
+    <div id="contact-description" class="sr-only">Fill in the form below to send us a message.</div>
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input id="name" name="name" type="text" required autocomplete="name" placeholder="Your Name" />
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" required autocomplete="email" placeholder="you@example.com" />
+    </div>
+    <div class="form-group">
+      <label for="message">Message</label>
+      <textarea id="message" name="message" required placeholder="Write your message here"></textarea>
+    </div>
+    <button class="btn-secondary" type="submit">Send Message</button>
+  </form>
+</section>
+
+<footer>
+  <div class="social-links" aria-label="Social media links">
+    <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook" tabindex="0">📘</a>
+    <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter" tabindex="0">🐦</a>
+    <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn" tabindex="0">🔗</a>
+  </div>
+  <div>&copy; 2024 Konsep Shop All rights reserved.</div>
+</footer>
